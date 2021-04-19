@@ -1,0 +1,20 @@
+---
+# tasks file for ./roles/nginx
+- name: installing nginx on Ubuntu
+  apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "Debian" 
+  notify: start nginx
+
+- name: installing nginx on REHL
+  dnf:
+    name: nginx
+    state: latest
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "RedHat"       
+  notify: start nginx    
+...    

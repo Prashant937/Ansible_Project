@@ -1,0 +1,9 @@
+---
+- name: Main Playbook
+  hosts: db-server
+  roles: 
+    -  mysql
+    -  nginx
+    -  docker
+    -  jenkins
+...
